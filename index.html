@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Anniversary, [Her Name] ❤️</title>
+
+<!--
+====================================================================
+ HOW TO PERSONALIZE THIS SITE
+====================================================================
+ Everything you need to change is marked with [BRACKETS].
+ Search this file (and the other files in /css and /js) for:
+
+  - [Her Name] / [Your Name]      → replace throughout
+  - "TIMELINE ITEM"                → 5 story cards in the timeline
+  - "POLAROID"                     → photo gallery captions/images
+  - "REASON"                       → the "reasons I love you" list
+  - "LOVE LETTER"                  → your real letter, in js/main.js
+  - START_DATE in js/main.js       → the date you got together
+                                     (powers the live counter)
+  - assets/images, assets/music    → drop your real photos + song here
+
+ See README.md for full step-by-step instructions.
+====================================================================
+-->
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- AOS scroll animation library -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" rel="stylesheet">
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- ============ LOADER ============ -->
+<div id="loader" class="loader">
+  <div class="loader-heart">❤️</div>
+  <p class="loader-text">Loading something made with love...</p>
+</div>
+
+<!-- ============ BACKGROUND MUSIC ============ -->
+<!-- EDIT ME: put your song file in assets/music/ and update the filename below -->
+<audio id="bg-music" loop preload="none">
+  <source src="assets/music/our-song.mp3" type="audio/mpeg">
+</audio>
+<button id="music-toggle" class="music-toggle" aria-label="Play or pause music" title="Music">🎵</button>
+
+<!-- floating hearts background layer -->
+<div class="floating-hearts" id="floatingHearts" aria-hidden="true"></div>
+
+<main id="pages">
+
+  <!-- ============ SECTION 1 / PAGE 1 – WELCOME ============ -->
+  <section class="page" id="welcome">
+    <div class="page-inner welcome-inner">
+      <p class="eyebrow" data-aos="fade-down">Happy Anniversary</p>
+      <h1 class="script-title" data-aos="fade-up" data-aos-delay="150">Babi!</h1>
+      <p class="welcome-sub" data-aos="fade-up" data-aos-delay="300">
+        To the most wonderful and gorgeous person I've ever met.<br>
+        Here's five years of us, page by page.
+      </p>
+      <button class="btn-primary begin-btn" id="beginBtn" data-aos="fade-up" data-aos-delay="450">
+        Begin Our Journey
+      </button>
+    </div>
+    <a href="#timeline" class="scroll-hint" aria-hidden="true"><span></span></a>
+  </section>
+
+  <!-- ============ SECTION 2 / PAGE 2 – TIMELINE ============ -->
+  <section class="page" id="timeline">
+    <div class="page-inner">
+      <p class="eyebrow" data-aos="fade-up">Our Story</p>
+      <h2 class="section-title" data-aos="fade-up">Every chapter that led here</h2>
+
+      <div class="timeline-track">
+        <div class="timeline-line"><div class="timeline-line-fill" id="timelineFill"></div></div>
+
+        <!-- TIMELINE ITEM 1 -->
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-dot">❤️</div>
+          <div class="timeline-card">
+            <h3>We Met</h3>
+            <p>We met as magkapitbahay when we were kids😂</p>
+          </div>
+        </div>
+
+        <!-- TIMELINE ITEM 2 -->
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-dot">❤️</div>
+          <div class="timeline-card">
+            <h3>First Date</h3>
+            <p>Milk tea date nung milktea era, naalala mo bab? hindi pa uso pambara non, drinks lang haha</p>
+          </div>
+        </div>
+
+        <!-- TIMELINE ITEM 3 -->
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-dot">❤️</div>
+          <div class="timeline-card">
+            <h3>First Picture Together</h3>
+            <p>Diyan sa tapat ng church nung may nagproject ng tinikling sainyo babb, naalala mo? haha</p>
+          </div>
+        </div>
+
+        <!-- TIMELINE ITEM 4 -->
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-dot">❤️</div>
+          <div class="timeline-card">
+            <h3>First "I Love You"</h3>
+            <p>haha eto sa chat to babb</p>
+          </div>
+        </div>
+
+        <!-- TIMELINE ITEM 5 -->
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-dot">❤️</div>
+          <div class="timeline-card">
+            <h3>Today</h3>
+            <p>Now ministers! never ko ito naimagine sa buhay ko labb back then</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <a href="#gallery" class="scroll-hint" aria-hidden="true"><span></span></a>
+  </section>
+
+  <!-- ============ SECTION 3 / PAGE 3 – GALLERY ============ -->
+  <section class="page" id="gallery">
+    <div class="page-inner">
+      <p class="eyebrow" data-aos="fade-up">Captured Moments</p>
+      <h2 class="section-title" data-aos="fade-up">A few of my favorites</h2>
+
+      <div class="polaroid-grid">
+        <!-- POLAROID 1 — replace src with your photo, e.g. assets/images/photo1.jpg -->
+        <figure class="polaroid" data-aos="fade-up" data-aos-delay="0">
+          <div class="polaroid-photo" style="background-image: url('assets/images/pic1.jpg');"></div>
+          <figcaption>first pic</figcaption>
+        </figure>
+        <figure class="polaroid" data-aos="fade-up" data-aos-delay="100">
+          <div class="polaroid-photo" style="background-image: url('assets/images/pic2.jpg');"></div>
+          <figcaption>cutie</figcaption>
+        </figure>
+        <figure class="polaroid" data-aos="fade-up" data-aos-delay="200">
+          <div class="polaroid-photo" style="background-image: url('assets/images/pic3.jpg');"></div>
+          <figcaption>mga mukhang pagkain</figcaption>
+        </figure>
+        <figure class="polaroid" data-aos="fade-up" data-aos-delay="0">
+          <div class="polaroid-photo" style="background-image: url('assets/images/pic4.jpg');"></div>
+          <figcaption>ministry date? haha charot</figcaption>
+        </figure>
+        <figure class="polaroid" data-aos="fade-up" data-aos-delay="100">
+          <div class="polaroid-photo" style="background-image: url('assets/images/pic5.jpg');"></div>
+          <figcaption>looking forward to unli rides/nature trip</figcaption>
+        </figure>
+        <figure class="polaroid" data-aos="fade-up" data-aos-delay="200">
+          <div class="polaroid-photo" style="background-image: url('assets/images/pic6.jpg');"></div>
+          <figcaption>🫰</figcaption>
+        </figure>
+      </div>
+    </div>
+    <a href="#reasons" class="scroll-hint" aria-hidden="true"><span></span></a>
+  </section>
+
+  <!-- ============ SECTION 4 / PAGE 4 – REASONS WHY I LOVE YOU ============ -->
+  <section class="page" id="reasons">
+    <div class="page-inner">
+      <p class="eyebrow" data-aos="fade-up">A Short List</p>
+      <h2 class="section-title" data-aos="fade-up">Reasons why I love you</h2>
+
+      <div class="reasons-grid">
+        <div class="reason-card" data-aos="zoom-in" data-aos-delay="0">
+          <span class="reason-icon">❤️</span>
+          <p>"Patience/Understanding Machine"</p>
+        </div>
+        <div class="reason-card" data-aos="zoom-in" data-aos-delay="80">
+          <span class="reason-icon">❤️</span>
+          <p>mapagbigay kahit wala na</p>
+        </div>
+        <div class="reason-card" data-aos="zoom-in" data-aos-delay="160">
+          <span class="reason-icon">❤️</span>
+          <p>caring, nag aalala kahit prank lang</p>
+        </div>
+        <div class="reason-card" data-aos="zoom-in" data-aos-delay="0">
+          <span class="reason-icon">❤️</span>
+          <p>supportive sa lahat ng bagay except sa pangagamote sa kalsada</p>
+        </div>
+        <div class="reason-card" data-aos="zoom-in" data-aos-delay="80">
+          <span class="reason-icon">❤️</span>
+          <p>emotional & spiritual support</p>
+        </div>
+        <div class="reason-card" data-aos="zoom-in" data-aos-delay="160">
+          <span class="reason-icon">❤️</span>
+          <p>kain lang ng kain</p>
+        </div>
+      </div>
+    </div>
+    <a href="#letter" class="scroll-hint" aria-hidden="true"><span></span></a>
+  </section>
+
+  <!-- ============ SECTION 5 / PAGE 5 – LOVE LETTER ============ -->
+  <section class="page" id="letter">
+    <div class="page-inner letter-inner">
+      <p class="eyebrow" data-aos="fade-up">A Letter For You</p>
+      <div class="letter-paper" data-aos="fade-up">
+        <p class="letter-salutation">Loveko,</p>
+        <p id="typedLetter" class="letter-typed"></p>
+        <span class="typed-cursor" id="typedCursor">|</span>
+        <p class="letter-signoff">only yours,<br>James Paul</p>
+      </div>
+    </div>
+    <a href="#counter" class="scroll-hint" aria-hidden="true"><span></span></a>
+  </section>
+
+  <!-- ============ SECTION 6 / PAGE 6 – COUNTER ============ -->
+  <section class="page" id="counter">
+    <div class="page-inner">
+      <p class="eyebrow" data-aos="fade-up">Every Second Counts</p>
+      <h2 class="section-title" data-aos="fade-up">We've been together for</h2>
+      <div class="counter-heart" data-aos="zoom-in">❤️</div>
+      <div class="counter-grid" data-aos="fade-up">
+        <div class="counter-unit"><span class="counter-num" id="count-days">0</span><span class="counter-label">Days</span></div>
+        <div class="counter-unit"><span class="counter-num" id="count-hours">0</span><span class="counter-label">Hours</span></div>
+        <div class="counter-unit"><span class="counter-num" id="count-mins">0</span><span class="counter-label">Minutes</span></div>
+        <div class="counter-unit"><span class="counter-num" id="count-secs">0</span><span class="counter-label">Seconds</span></div>
+      </div>
+      <p class="counter-note">...and counting, for the rest of our lives.</p>
+    </div>
+    <a href="#finale" class="scroll-hint" aria-hidden="true"><span></span></a>
+  </section>
+
+  <!-- ============ SECTION 7 / PAGE 7 – FINALE ============ -->
+  <section class="page" id="finale">
+    <div class="page-inner finale-inner">
+      <div class="finale-heart" id="finaleHeart">❤️</div>
+      <h2 class="script-title finale-title" data-aos="zoom-in">Happy Anniversary</h2>
+      <p class="finale-sub" data-aos="fade-up" data-aos-delay="200">I love you for life Janille. Here's to many more moments we'll share together.
+</p>
+      <p class="finale-from" data-aos="fade-up" data-aos-delay="400">— James ❤️</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+<script src="js/effects.js"></script>
+<script src="js/timeline.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

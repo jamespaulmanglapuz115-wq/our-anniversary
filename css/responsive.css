@@ -1,0 +1,99 @@
+/* ====================================================================
+   RESPONSIVE BREAKPOINTS
+==================================================================== */
+
+/* ---------- Tablets ---------- */
+@media (max-width: 900px) {
+  .polaroid-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 20px;
+  }
+
+  .reasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .page {
+    padding: 80px 20px;
+  }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 600px) {
+  .script-title {
+    font-size: clamp(40px, 14vw, 64px);
+  }
+
+  .welcome-sub {
+    font-size: 16px;
+  }
+
+  .polaroid-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 16px;
+  }
+
+  .reasons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-track {
+    padding-left: 40px;
+  }
+
+  .timeline-line {
+    left: 15px;
+  }
+
+  .timeline-dot {
+    left: -40px;
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .timeline-card {
+    padding: 20px 18px;
+  }
+
+  .counter-grid {
+    gap: 10px;
+  }
+
+  .counter-unit {
+    min-width: 76px;
+    padding: 16px 14px;
+  }
+
+  .letter-paper {
+    padding: 26px 20px;
+  }
+
+  .music-toggle {
+    top: 16px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+    font-size: 17px;
+  }
+}
+
+/* ---------- Very small phones ---------- */
+@media (max-width: 380px) {
+  .polaroid-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .counter-grid {
+    flex-wrap: wrap;
+  }
+}
+
+/* ---------- Landscape / short viewports: relax the page-turn tilt
+   so content doesn't overflow before it settles in ---------- */
+@media (max-height: 560px) {
+  .page {
+    min-height: auto;
+    padding: 60px 20px;
+  }
+}

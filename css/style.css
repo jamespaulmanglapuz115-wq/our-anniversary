@@ -1,0 +1,520 @@
+/* ====================================================================
+   THEME TOKENS
+   Change these to retheme the entire site from one place.
+==================================================================== */
+:root {
+  --bg: #FFF5F7;
+  --primary: #FF4D6D;
+  --secondary: #FF8FA3;
+  --accent: #FFD6E0;
+  --text: #333333;
+  --white: #FFFFFF;
+
+  --font-title: 'Great Vibes', cursive;
+  --font-body: 'Poppins', sans-serif;
+
+  --shadow-soft: 0 10px 30px rgba(255, 77, 109, 0.15);
+  --shadow-card: 0 8px 24px rgba(51, 51, 51, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.script-title {
+  font-family: var(--font-title);
+  font-size: clamp(48px, 9vw, 96px);
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.section-title {
+  font-size: clamp(26px, 4vw, 40px);
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* ====================================================================
+   LOADER
+==================================================================== */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-heart {
+  font-size: 64px;
+}
+
+.loader-text {
+  font-size: 15px;
+  color: var(--secondary);
+  letter-spacing: 0.04em;
+}
+
+/* ====================================================================
+   MUSIC TOGGLE
+==================================================================== */
+.music-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 200;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.music-toggle:hover {
+  transform: scale(1.08);
+}
+
+.music-toggle.playing {
+  animation: spin 4s linear infinite;
+}
+
+/* ====================================================================
+   PAGE / STORYBOOK STRUCTURE
+==================================================================== */
+main#pages {
+  scroll-snap-type: y proximity;
+}
+
+.page {
+  min-height: 100svh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 100px 24px;
+  scroll-snap-align: start;
+}
+
+.page-inner {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ====================================================================
+   WELCOME PAGE
+==================================================================== */
+#welcome {
+  text-align: center;
+  background:
+    radial-gradient(circle at 20% 20%, var(--accent) 0%, transparent 55%),
+    radial-gradient(circle at 80% 80%, var(--accent) 0%, transparent 55%),
+    var(--bg);
+}
+
+.welcome-sub {
+  max-width: 480px;
+  margin: 0 auto;
+  font-size: 18px;
+  color: var(--text);
+}
+
+.btn-primary {
+  margin-top: 40px;
+  padding: 16px 40px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  background: var(--primary);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(255, 77, 109, 0.25);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  width: 22px;
+  height: 36px;
+  border: 2px solid var(--secondary);
+  border-radius: 20px;
+}
+
+.scroll-hint span {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 2px;
+  animation: scrollDot 1.6s ease-in-out infinite;
+}
+
+/* ====================================================================
+   TIMELINE PAGE
+==================================================================== */
+.timeline-track {
+  position: relative;
+  padding-left: 50px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  left: 19px;
+  width: 2px;
+  height: 100%;
+  background: var(--accent);
+}
+
+.timeline-line-fill {
+  width: 100%;
+  height: 0%;
+  background: var(--primary);
+  transition: height 0.2s ease-out;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 56px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.timeline-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 26px 28px;
+  box-shadow: var(--shadow-card);
+}
+
+.timeline-card h3 {
+  color: var(--primary);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.timeline-card p {
+  font-size: 15px;
+  color: var(--text);
+}
+
+/* ====================================================================
+   GALLERY / POLAROIDS
+==================================================================== */
+.polaroid-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px 28px;
+  padding-top: 10px;
+}
+
+.polaroid {
+  background: var(--white);
+  padding: 14px 14px 40px;
+  box-shadow: var(--shadow-card);
+  border-radius: 3px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.polaroid:nth-child(3n+1) { transform: rotate(-3deg); }
+.polaroid:nth-child(3n+2) { transform: rotate(2deg); }
+.polaroid:nth-child(3n)   { transform: rotate(-1.5deg); }
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 18px 40px rgba(51, 51, 51, 0.18);
+  z-index: 2;
+}
+
+.polaroid-focused {
+  transform: rotate(0deg) scale(1.15) !important;
+  box-shadow: 0 24px 50px rgba(51, 51, 51, 0.22) !important;
+  z-index: 3;
+}
+
+.polaroid-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.placeholder-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent), var(--secondary));
+  color: var(--white);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.polaroid figcaption {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* ====================================================================
+   REASONS GRID
+==================================================================== */
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.reason-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease;
+}
+
+.reason-card:hover {
+  transform: translateY(-6px);
+}
+
+.reason-icon {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.reason-card p {
+  font-size: 15px;
+}
+
+/* ====================================================================
+   LOVE LETTER
+==================================================================== */
+.letter-inner {
+  max-width: 700px;
+}
+
+.letter-paper {
+  background: var(--white);
+  border-radius: 12px;
+  padding: clamp(28px, 6vw, 64px);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+}
+
+.letter-salutation {
+  font-family: var(--font-title);
+  font-size: 32px;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.letter-typed {
+  font-size: 17px;
+  color: var(--text);
+  white-space: pre-wrap;
+  display: inline;
+}
+
+.typed-cursor {
+  display: inline-block;
+  color: var(--primary);
+  animation: blink 0.8s step-end infinite;
+}
+
+.letter-signoff {
+  margin-top: 34px;
+  font-family: var(--font-title);
+  font-size: 26px;
+  color: var(--primary);
+}
+
+/* ====================================================================
+   COUNTER
+==================================================================== */
+#counter .page-inner {
+  text-align: center;
+}
+
+.counter-heart {
+  font-size: 44px;
+  margin-bottom: 30px;
+}
+
+.counter-grid {
+  display: flex;
+  justify-content: center;
+  gap: clamp(14px, 4vw, 36px);
+  flex-wrap: wrap;
+}
+
+.counter-unit {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 22px 26px;
+  min-width: 100px;
+  box-shadow: var(--shadow-card);
+}
+
+.counter-num {
+  display: block;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.counter-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.counter-note {
+  margin-top: 34px;
+  font-size: 15px;
+  color: var(--text);
+  font-style: italic;
+}
+
+/* ====================================================================
+   FINALE
+==================================================================== */
+#finale {
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 30%, var(--accent) 0%, transparent 60%),
+    var(--bg);
+}
+
+.finale-heart {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.finale-title {
+  margin-bottom: 20px;
+}
+
+.finale-sub {
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+.finale-from {
+  margin-top: 24px;
+  font-family: var(--font-title);
+  font-size: 24px;
+  color: var(--primary);
+}
+
+/* ====================================================================
+   FLOATING HEARTS BACKGROUND
+==================================================================== */
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -40px;
+  color: var(--secondary);
+  opacity: 0.5;
+  font-size: 18px;
+  animation: floatUp linear forwards;
+}
